@@ -1,6 +1,6 @@
 # Vue 3 Linkify 
 
-[![NPM](https://img.shields.io/npm/v/@say8425/vue-3-linkify?color=cb3837&logo=npm)](https://www.npmjs.com/package/vue-3-linkify)
+[![NPM](https://img.shields.io/npm/v/vue-3-linkify?color=cb3837&logo=npm)](https://www.npmjs.com/package/vue-3-linkify)
 [![Test](https://github.com/say8425/vue-3-linkify/actions/workflows/test.yml/badge.svg)](https://github.com/say8425/vue-3-linkify/actions/workflows/test.yml)
 [![Release](https://github.com/say8425/vue-3-linkify/actions/workflows/release.yml/badge.svg)](https://github.com/say8425/vue-3-linkify/actions/workflows/release.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/say8425/vue-3-linkify/blob/master/LICENSE)
