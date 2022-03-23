@@ -7,6 +7,8 @@
 
 Vue 3 directive to turn URL and emails into anchor tag that use [Linkify.js](https://linkify.js.org/).
 
+[![Demo vue-3-linkify](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-3-linkify-demo-pizsri?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark)
+
 ## Installation
 
 ```shell
