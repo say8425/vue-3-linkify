@@ -44,7 +44,8 @@
     "vue-tsc": "^0.32.0"
   },
   "dependencies": {
-    "linkify-string": "^3.0.4",
-    "linkifyjs": "^3.0.5"
+    "linkify-html": "^3.0.5",
+    "linkifyjs": "^3.0.5",
+    "xss": "^1.0.11"
   }
 }

@@ -1,15 +1,19 @@
 import { App, Directive } from "@vue/runtime-core";
-import linkifyStr from "linkify-string";
+import linkifyHtml from "linkify-html";
 import { Options } from "linkifyjs";
+import xss from "xss";
+
+const linkify = (rawHtml: string, options: Options): string => {
+  const sanitized = xss(rawHtml);
+  return linkifyHtml(sanitized, options);
+};
 
 const directive: Directive = {
   beforeMount(element: HTMLElement, binding) {
-    const options = binding.value as Options;
-    element.innerHTML = linkifyStr(element.innerHTML, options);
+    element.innerHTML = linkify(element.innerHTML, binding.value);
   },
   updated(element: HTMLElement, binding) {
-    const options = binding.value as Options;
-    element.innerHTML = linkifyStr(element.innerHTML, options);
+    element.innerHTML = linkify(element.innerHTML, binding.value);
   },
 };
 
