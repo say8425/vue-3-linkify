@@ -1,7 +1,7 @@
 {
   "name": "vue-3-linkify",
   "version": "1.0.0",
-  "repository": "https://github.io/say8425/vue-3-linkify",
+  "repository": "https://github.com/say8425/vue-3-linkify",
   "author": "Cheon Park",
   "description": "Linkify.js for Vue.js 3",
   "scripts": {
