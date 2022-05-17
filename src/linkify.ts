@@ -1,9 +1,13 @@
 import linkifyHtml from "linkify-html";
 import { Options } from "linkifyjs";
-import xss from "xss";
+import xss, { IFilterXSSOptions } from "xss";
 
-const linkify = (rawHtml: string, options: Options): string => {
-  const sanitized = xss(rawHtml);
+const linkify = (
+  rawHtml: string,
+  options?: Options,
+  xssOptions?: IFilterXSSOptions,
+) => {
+  const sanitized = xss(rawHtml, xssOptions);
   return linkifyHtml(sanitized, options);
 };
 
