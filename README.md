@@ -59,6 +59,24 @@ app.mount('#app')
 
 You can use the [linkify options](https://linkify.js.org/docs/options.html).
 
+### Define XSS Options
+
+```vue
+<template>
+  <div v-linkify:options="{
+    xssOptions: {
+      whiteList: {
+        span: ['style'],
+      }
+    },
+  }">
+    ...
+  </div>
+</template>
+```
+
+You can use the [xss options](https://jsxss.com/en/options#customize-whitelist).
+
 ### Add event listener
 
 ```vue

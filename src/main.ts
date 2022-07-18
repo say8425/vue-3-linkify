@@ -1,10 +1,14 @@
 import { App, Directive } from "@vue/runtime-core";
 import linkifyHtml from "linkify-html";
 import { Options } from "linkifyjs";
-import xss from "xss";
+import xss, { IFilterXSSOptions } from "xss";
 
-const linkify = (rawHtml: string, options: Options): string => {
-  const sanitized = xss(rawHtml);
+interface VueLinkifyOptions extends Options {
+  xssOptions?: IFilterXSSOptions;
+}
+
+const linkify = (rawHtml: string, options: VueLinkifyOptions): string => {
+  const sanitized = xss(rawHtml, options.xssOptions);
   return linkifyHtml(sanitized, options);
 };
 
