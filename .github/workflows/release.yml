@@ -120,10 +120,14 @@ jobs:
       - name: Install dependencies
         run: yarn --prefer-offline
 
-      - name: Check package version
-        uses: technote-space/package-version-check-action@v1
+      - name: Automated Version Bump
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          COMMIT_MESSAGE: '🔖 update package version'
+          target-branch: 'main'
+          tag-prefix: 'v'
+          commit-message: '🔖 update package {{version}}'
 
       - name: Release to NPM Registry
         uses: JS-DevTools/npm-publish@v1
