@@ -9,13 +9,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+
       - name: Set yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Restore dependencies from cache
         uses: actions/cache@v2
         with:
@@ -23,6 +26,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         run: yarn --prefer-offline
   lint:
@@ -32,13 +36,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+
       - name: Set yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Restore dependencies from cache
         uses: actions/cache@v2
         with:
@@ -46,8 +53,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         run: yarn --prefer-offline
+
       - name: Run Lint
         run: yarn lint
   type-check:
@@ -57,13 +66,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+
       - name: Set yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Restore dependencies from cache
         uses: actions/cache@v2
         with:
@@ -71,10 +83,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         run: yarn --prefer-offline
+
       - name: Run Type Check
         run: yarn lint:tsc
+
   release:
     runs-on: ubuntu-latest
     needs:
@@ -83,14 +98,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Set yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Restore dependencies from cache
         uses: actions/cache@v2
         with:
@@ -98,8 +116,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         run: yarn --prefer-offline
+
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
         with:
