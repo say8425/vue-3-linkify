@@ -23,6 +23,10 @@ Recommended to use npm or yarn to install.
 
 ## Usage
 
+> **Warning**
+> This Usage is for Version 2.
+> If you want to use Version 1, please read the [Version 1 README.md](https://github.com/say8425/vue-3-linkify/tree/v1.1.0).
+
 ### Register plugin
 
 ```typescript
@@ -45,29 +49,73 @@ app.mount('#app')
   </div>
 </template>
 ```
-### Use directive with options
+
+### Options
 
 ```vue
 <template>
   <div v-linkify:options="{
-    target: '_blank',
+    linkify: {
+      target: '_blank',
+    },
+    xss: {
+      whiteList: {
+        a: ['href', 'title', 'target'],
+      },
+    }
   }">
     ...
   </div>
 </template>
 ```
 
-You can use the [linkify options](https://linkify.js.org/docs/options.html).
+You can set options to customize the behavior.
+There are two following options: Linkify and JS XSS.
 
-### Add event listener
+#### Linkify
 
 ```vue
 <template>
   <div v-linkify:options="{
-    target: '_blank',
-    attributes: {
-      onclick: 'event.stopPropagation()',
+    linkify: {
+      target: '_blank',
     },
+  }">
+    ...
+  </div>
+</template>
+```
+
+You can use the following [linkify options](https://linkify.js.org/docs/options.html) with linkify key.
+
+#### XSS
+
+```vue
+<template>
+  <div v-linkify:options="{
+    xss: {
+      whiteList: {
+        a: ['href', 'title', 'target'],
+      },
+    }
+  }">
+    ...
+  </div>
+</template>
+```
+
+[jsxss options](https://jsxss.com/en/options.html) with xss key.
+
+#### Event listener
+
+```vue
+<template>
+  <div v-linkify:options="{
+    linkify: {
+      attributes: {
+        onclick: 'event.stopPropagation()',
+      },  
+    }
   }">
     ...
   </div>
@@ -76,4 +124,3 @@ You can use the [linkify options](https://linkify.js.org/docs/options.html).
 
 Unfortunately, the [events option](https://linkify.js.org/docs/options.html#events) is not supported in linkify.js.
 But you can add event listeners to [attributes options](https://linkify.js.org/docs/options.html#attributes) manually.
-
